@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    /* Modules */
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "rootDirs": ["src", "tests"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
