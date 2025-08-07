@@ -2,6 +2,7 @@ import admin_routes from "./features/admin/admin.routes";
 import assistent_routes from "./features/assistants/assistants.routes";
 import { auth_middleware } from "./features/auth/auth.middleware";
 import auth_routes from "./features/auth/auth.routes";
+import authors_routes from "./features/authors/authors.routes";
 import courses_routes from "./features/courses/courses.routes";
 import dof_routes from "./features/day_of_week/day_of_week.routes";
 import schedule_routes from "./features/schedules/schedule.routes";
@@ -16,6 +17,7 @@ const global_routes = (instance: fastify_typed_instance) => {
   instance.register(courses_routes, { prefix: "courses" });
   instance.register(dof_routes, { prefix: "day_of_week" });
   instance.register(schedule_routes, { prefix: "schedule" });
+  instance.register(authors_routes, { prefix: "authors" })
 };
 
 export default global_routes;

@@ -6,7 +6,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 
 export const auth_me = async (req: FastifyRequest, reply: FastifyReply) => {
   const { password } = req.body as entry_schemas.auth_me;
-
+  
   const result_authentication = await auth_service.auth_me(features.admin, { password });
 
   return result_authentication.match(
@@ -14,6 +14,7 @@ export const auth_me = async (req: FastifyRequest, reply: FastifyReply) => {
       return reply.status(200).send({ message: success.message, auth_token: success.auth_token });
     },
     (error) => {
+      
       return reply.status(401).send({ message: error.message });
     }
   );

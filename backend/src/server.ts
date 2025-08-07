@@ -6,7 +6,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUI from "@fastify/swagger-ui";
 import global_routes from "./global.routes";
 
-export const app = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
+export const app = Fastify().withTypeProvider<ZodTypeProvider>();
 
 export function init_server() {
   const PORT = Number(get_env("PORT"));

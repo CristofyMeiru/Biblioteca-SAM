@@ -18,3 +18,8 @@ export type schedule_props = typeof schemas.schedules_table.$inferSelect;
 export type day_of_week_props_insert = typeof schemas.day_of_week_table.$inferInsert;
 export type day_of_week_props = typeof schemas.day_of_week_table.$inferSelect;
 
+export type book_props_insert = typeof schemas.book_table.$inferInsert;
+export type book_props = typeof schemas.book_table.$inferSelect;
+
+export type author_props_insert = typeof schemas.authors_table.$inferInsert;
+export type author_props = typeof schemas.authors_table.$inferSelect;
