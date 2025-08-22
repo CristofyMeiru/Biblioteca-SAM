@@ -26,14 +26,15 @@ export default function PathVisualizer() {
         </>
       );
     });
-
-  /*<Button variant={"ghost"} >Início</Button>
-    <Button className=" p-0  " variant={"ghost"}>{">"}</Button>
-    <Button variant={"ghost"}>Configurações</Button> */
-
   return (
     <div className=" flex items-center text-neutral-300 font-semibold text-sm ">
-      {formattedPathname.length == 0 ? <Button variant={"ghost"}>Início</Button> : formattedPathname}
+      {formattedPathname.length == 0 ? (
+        <Button className="text-neutral-600 dark:text-neutral-300 " variant={"ghost"}>
+          Início
+        </Button>
+      ) : (
+        formattedPathname
+      )}
     </div>
   );
 }

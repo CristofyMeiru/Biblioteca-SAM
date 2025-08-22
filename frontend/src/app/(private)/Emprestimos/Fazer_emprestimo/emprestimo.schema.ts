@@ -11,3 +11,17 @@ export const loanSchema = z.object({
 });
 
 export type loanSchemaType = z.infer<typeof loanSchema>;
+
+export interface Loan {
+  id: string;
+  student_name: string;
+  course: string;
+  call_number: string;
+  grade_level: string;
+  title: string;
+  author: string;
+  genre: string;
+  expires_at: Date;
+  created_at: Date;
+  updated_at: Date;
+}

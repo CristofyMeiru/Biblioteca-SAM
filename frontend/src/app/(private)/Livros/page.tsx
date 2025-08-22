@@ -30,7 +30,7 @@ export default function page() {
       pagina de livros
       <Link href={"/Livros/Livro/Livro_dos_bichos"} >Pagina do livro dos bicho</Link>
       <Link href={"/Livros/Adicionar_livro"}>Adicionar livro</Link>
-      <DataTable data={dataMock} columns={columns} />
+      <DataTable key={1} data={dataMock} columns={columns} />
     </div>
   );
 }

@@ -7,13 +7,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { QrReader } from "@blackbox-vision/react-qr-reader";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { loanSchema } from "./emprestimo.schema";
-import { getDateAfter10Days } from "./emprestimo.utils";
+import { formatStudent, formatToObject, getDateAfter10Days } from "./emprestimo.utils";
 
 export default function Fazer_emprestimo() {
   const dateAfter10Days = getDateAfter10Days();
+  const instruction = ["Informe o QrCode do aluno", "Informe o Qrcode do livro"];
+  const [instructionGrade, setInstructionGrade] = useState<number>(0);
 
   const form = useForm({
     mode: "onBlur",
@@ -21,24 +25,30 @@ export default function Fazer_emprestimo() {
   });
 
   function onResultQrReader(data: any) {
-    console.log("data:" + data);
+    if (!data) {
+      return;
+    } else {
+      const inferno = data;
+      const result = formatToObject(inferno.text);
+      const result2 = formatStudent(result);
+      console.log(result2);
+      setInstructionGrade(1)
+    }
   }
 
   return (
     <div className=" grid grid-cols-2 p-4 gap-x-2 ">
       <Card>
         <CardHeader>
-          <CardTitle>Informe o qrCode do aluno</CardTitle>
+          <CardTitle className=" text-center text-2xl ">{instruction[instructionGrade]}</CardTitle>
         </CardHeader>
         <CardContent>
-          {/*<QrReader
+          <QrReader
             className="hidden"
             constraints={{ facingMode: "environment" }}
             scanDelay={1000}
             onResult={onResultQrReader}
           />
-          
-          */}
           <WebCamViewer />
         </CardContent>
       </Card>

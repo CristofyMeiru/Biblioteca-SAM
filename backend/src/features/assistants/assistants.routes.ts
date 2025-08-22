@@ -7,6 +7,7 @@ const assistent_routes = (instance: fastify_typed_instance) => {
     "/create",
     {
       schema: {
+        tags: ["assistants"],
         body: entry_types.create,
       },
     },
